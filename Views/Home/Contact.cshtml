@@ -1,17 +1,44 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Centric's Core Values";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
+<div><b>Centric's Core Value'</b><br /></div>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Stewardship </th>
+        <th>Culture </th>
+        <th>Delivery Excellence </th>
+        <th>Innovation</th>
+        <th>Greater Good</th>
+        <th>Integrity and Openness</th>
+        <th>Balance</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+    <tr>
+        <td>Practice Responsible Stewardship</td>
+        <td>Invest in an Exceptional Culture</td>
+        <td>Commit to Delivery Excellence</td>
+        <td>Strive to Innovate</td>
+        <td>Ignite Passion for the Greater Good</td>
+        <td>Embrace Integrity and Openness</td>
+        <td>Live a Balanced Life</td>
+
+    </tr>
+
+    }
+</table>
+
 <address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
+    1020 Dennison Ave<br />
+    Columbus, OH 43201-6399<br />
     <abbr title="Phone">P:</abbr>
-    425.555.0100
+    614.519.0798
 </address>
 
 <address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    <strong>News and Events:</strong>   <a href="https://centricconsulting.com/news-and-events/">Support@example.com</a><br />
+    <strong>Careers:</strong> <a href="https://centricconsulting.com/about-us/careers/">Marketing@example.com</a>
 </address>
