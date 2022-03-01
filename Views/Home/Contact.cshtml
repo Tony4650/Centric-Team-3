@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Centric's Core Values";
+    ViewBag.Title = "Centric's Consulting Core Values";
 }
 
 <html>
@@ -8,25 +8,27 @@
     table, th, td {
         border: 2px solid black;
         border-collapse: collapse;
+ 
+        
     }
     th, td {
-        padding: 8px;
+        padding: 20px;
     }
-    tr:nth-child(even) {
-        background-color:lightblue;
+    tr:nth-child(odd) {
+        background-color:gold;
     }
 </style>
 </head>
 <body>
 
-<div style="background-color:lightblue">
-    <h2 style="color:black"><strong>@ViewBag.Title</strong></h2>
+<div style="background-color:indigo">
+    <h2 class="text-center" style="color:white"><strong>@ViewBag.Title</strong></h2>
 </div>
 
 <br />
 
 
-<table style="width:52%">
+<table style="width:100%">
     <tr>
         <th class="text-center">Stewardship</th>
         <td class="text-left"><strong>Practice Responsible Stewardship</strong></td>
