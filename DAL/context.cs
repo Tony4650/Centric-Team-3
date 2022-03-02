@@ -7,7 +7,7 @@ using Centric_Team_3.Models;
 
 namespace Centric_Team_3.DAL
 {
-    public class context: DbContext
+    public class context : DbContext
     {
         public context() : base("name=DefaultConnection")
         { 
