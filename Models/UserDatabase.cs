@@ -9,7 +9,6 @@ namespace Centric_Team_3.Models
     public class UserDatabase
     {
         public Guid ID { get; set; }
-        
 
         [Required]
         public string lastName { get; set; }

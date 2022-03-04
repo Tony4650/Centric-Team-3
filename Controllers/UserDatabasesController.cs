@@ -22,7 +22,7 @@ namespace Centric_Team_3.Controllers
         }
 
         // GET: UserDatabases/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
