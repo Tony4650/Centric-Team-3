@@ -38,6 +38,7 @@ namespace Centric_Team_3.Controllers
         }
 
         // GET: UserDatabases/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
