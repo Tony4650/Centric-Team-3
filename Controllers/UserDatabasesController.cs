@@ -66,7 +66,7 @@ namespace Centric_Team_3.Controllers
         }
 
         // GET: UserDatabases/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -97,7 +97,7 @@ namespace Centric_Team_3.Controllers
         }
 
         // GET: UserDatabases/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
