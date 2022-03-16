@@ -29,6 +29,26 @@ namespace Centric_Team_3.Models
 
         [Required]
         public string office { get; set; }
+            public enum OfficeLocation
+            {
+                Boston = 1,
+                Charlotte = 2,
+                Chicago = 3,
+                Cleveland = 4,
+                Cincinnati = 5,
+                Columbus = 6,
+                Detroit = 7,
+                India = 8,
+                Indianapolis = 9,
+                Lousiville = 10,
+                Miami = 11,
+                Seattle = 12,
+                StLouis = 13,
+                Tampa = 14,
+                
+
+            }
+        
 
         [Required]
         public DateTime startDate { get; set; }
