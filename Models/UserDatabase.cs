@@ -12,7 +12,7 @@ namespace Centric_Team_3.Models
 
         [Required]
         public string lastName { get; set; }
-
+        [Display (Name = " Last Name ")]
         [Required]
         public string firstName { get; set; }
 
@@ -26,13 +26,13 @@ namespace Centric_Team_3.Models
 
         [Required]
         public string department { get; set; }
-
+        [Display(Name = " Department ")]
         [Required]
         public string office { get; set; }
-
+        [Display(Name = " Office")]
         [Required]
         public DateTime startDate { get; set; }
-
+        
 
     }
 }
