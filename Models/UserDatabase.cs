@@ -12,10 +12,12 @@ namespace Centric_Team_3.Models
 
         [Required]
         [Display(Name = " Last Name ")]
+        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in name")]
         public string lastName { get; set; }
         
         [Required]
         [Display(Name = " First Name")]
+        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in name")]
         public string firstName { get; set; }
 
         [Display(Name = "Full Name")]
