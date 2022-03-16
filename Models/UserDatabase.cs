@@ -42,7 +42,7 @@ namespace Centric_Team_3.Models
         [DisplayFormat(DataFormatString = "{0:dddd MMM d, yyyy}",
         ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
-        [Required(ErrorMessage = "Start Date is a required field")]
+        [Required(ErrorMessage = "Date is a required field")]
         public DateTime startDate { get; set; }
         
 
