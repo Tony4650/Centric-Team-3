@@ -11,9 +11,11 @@ namespace Centric_Team_3.Models
         public Guid ID { get; set; }
 
         [Required]
+        [Display(Name = " Last Name ")]
         public string lastName { get; set; }
-
+        
         [Required]
+        [Display(Name = " First Name")]
         public string firstName { get; set; }
 
         [Display(Name = "Full Name")]
@@ -25,34 +27,17 @@ namespace Centric_Team_3.Models
                 }
 
         [Required]
+        [Display(Name = " Department ")]
         public string department { get; set; }
-
-        [Required]
-        public string office { get; set; }
-            public enum OfficeLocation
-            {
-                Boston = 1,
-                Charlotte = 2,
-                Chicago = 3,
-                Cleveland = 4,
-                Cincinnati = 5,
-                Columbus = 6,
-                Detroit = 7,
-                India = 8,
-                Indianapolis = 9,
-                Lousiville = 10,
-                Miami = 11,
-                Seattle = 12,
-                StLouis = 13,
-                Tampa = 14,
-                
-
-            }
         
-
         [Required]
+        [Display(Name = " Office")]
+        public string office { get; set; }
+       
+        [Required]
+        [Display(Name = " Start Date")]
         public DateTime startDate { get; set; }
-
+        
 
     }
 }
