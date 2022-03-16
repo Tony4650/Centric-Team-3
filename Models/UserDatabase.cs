@@ -11,9 +11,11 @@ namespace Centric_Team_3.Models
         public Guid ID { get; set; }
 
         [Required]
+        [Display(Name = " Last Name ")]
         public string lastName { get; set; }
-        [Display (Name = " Last Name ")]
+        
         [Required]
+        [Display(Name = " First Name")]
         public string firstName { get; set; }
 
         [Display(Name = "Full Name")]
@@ -25,12 +27,15 @@ namespace Centric_Team_3.Models
                 }
 
         [Required]
-        public string department { get; set; }
         [Display(Name = " Department ")]
+        public string department { get; set; }
+        
         [Required]
-        public string office { get; set; }
         [Display(Name = " Office")]
+        public string office { get; set; }
+       
         [Required]
+        [Display(Name = " Start Date")]
         public DateTime startDate { get; set; }
         
 
