@@ -12,12 +12,12 @@ namespace Centric_Team_3.Models
 
         [Required]
         [Display(Name = " Last Name ")]
-        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in name")]
+        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Last Name")]
         public string lastName { get; set; }
         
         [Required]
         [Display(Name = " First Name")]
-        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in name")]
+        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in First Name")]
         public string firstName { get; set; }
 
         [Display(Name = "Full Name")]
@@ -30,14 +30,19 @@ namespace Centric_Team_3.Models
 
         [Required]
         [Display(Name = " Department ")]
+        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Department")]
         public string department { get; set; }
         
         [Required]
         [Display(Name = " Office")]
+        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Office")]
         public string office { get; set; }
        
-        [Required]
-        [Display(Name = " Start Date")]
+ 
+        [DisplayFormat(DataFormatString = "{0:dddd MMM d, yyyy}",
+        ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        [Required(ErrorMessage = "Start Date is a required field")]
         public DateTime startDate { get; set; }
         
 
