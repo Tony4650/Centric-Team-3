@@ -114,7 +114,7 @@ namespace Centric_Team_3.Controllers
         // POST: UserDatabases/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid? id)
         {
             UserDatabase userDatabase = db.UserDatabase.Find(id);
             db.UserDatabase.Remove(userDatabase);

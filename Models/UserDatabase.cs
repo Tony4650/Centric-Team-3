@@ -29,9 +29,9 @@ namespace Centric_Team_3.Models
                 }
 
         [Required]
-        [Display(Name = " Department ")]
+        [Display(Name = " Business Unit ")]
         [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Department")]
-        public string department { get; set; }
+        public string businessUnit { get; set; }
         
         [Required]
         [Display(Name = " Office")]
