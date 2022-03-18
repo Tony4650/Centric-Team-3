@@ -38,7 +38,7 @@ namespace Centric_Team_3.Models
         [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Office")]
         public string office { get; set; }
        
- 
+        [Display(Name = "Start Date")]
         [DisplayFormat(DataFormatString = "{0:dddd MMM d, yyyy}",
         ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
