@@ -8,9 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Centric_Team_3.DAL;
 using Centric_Team_3.Models;
-using Microsoft.AspNet.Identity;
 
-namespace Centric_Team_3.Controllers
+namespace Centric_Team_3.Controllers                                                                                                                                                                                                                                                                                                                                                            
 {
     public class UserDatabasesController : Controller
     {
@@ -38,7 +37,7 @@ namespace Centric_Team_3.Controllers
         }
 
         // GET: UserDatabases/Create
-        [Authorize]
+        [Authorize]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
         public ActionResult Create()
         {
             return View();
@@ -49,14 +48,11 @@ namespace Centric_Team_3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,lastName,firstName,department,office,startDate")] UserDatabase userDatabase)
+        public ActionResult Create([Bind(Include = "ID,lastName,firstName,businessUnit,title,startDate")] UserDatabase userDatabase)
         {
             if (ModelState.IsValid)
             {
-                //  registeredUser.ID = Guid.NewGuid();
-                Guid newUser;
-                Guid.TryParse(User.Identity.GetUserId(), out newUser);
-                userDatabase.ID = newUser;
+                userDatabase.ID = Guid.NewGuid();
                 db.UserDatabase.Add(userDatabase);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,7 +81,7 @@ namespace Centric_Team_3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,lastName,firstName,department,office,startDate")] UserDatabase userDatabase)
+        public ActionResult Edit([Bind(Include = "ID,lastName,firstName,businessUnit,title,startDate")] UserDatabase userDatabase)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +110,7 @@ namespace Centric_Team_3.Controllers
         // POST: UserDatabases/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid? id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             UserDatabase userDatabase = db.UserDatabase.Find(id);
             db.UserDatabase.Remove(userDatabase);

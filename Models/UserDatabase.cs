@@ -30,13 +30,12 @@ namespace Centric_Team_3.Models
 
         [Required]
         [Display(Name = " Business Unit ")]
-        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Department")]
-        public string businessUnit { get; set; }
+        
+        public dlBusinessUnit businessUnit { get; set; }
         
         [Required]
-        [Display(Name = " Office")]
-        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Office")]
-        public string office { get; set; }
+        [Display(Name = " Title")]
+        public dlTitle title { get; set; }
        
         [Display(Name = "Start Date")]
         [DisplayFormat(DataFormatString = "{0:dddd MMM d, yyyy}",
@@ -44,7 +43,34 @@ namespace Centric_Team_3.Models
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Date is a required field")]
         public DateTime startDate { get; set; }
-        
+        public enum dlBusinessUnit { 
+        Boston = 1,
+        Charlotte = 2,
+        Chicago = 3,
+        Cincinnatti = 4,
+        Cleveland = 5, 
+        Columbus = 6,
+        Detroit = 7, 
+        India = 8,
+        Indianapolis = 9,
+        Louisville = 10,
+        Miami =11,
+        Seattle = 12,
+        St_Louis =13,
+        Tampa = 14,
+
+        }
+
+        public enum dlTitle {
+        National = 1,
+        Partner = 2,
+        Senior_Architect = 3,
+        Architect = 4,
+        Senior_Manager =5,
+        Manager = 6,
+        Senior_Consultant = 7,
+        Consultant =8,
+        }
 
     }
 }
