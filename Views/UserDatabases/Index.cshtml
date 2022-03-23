@@ -11,13 +11,12 @@
 </p>
 @using (Html.BeginForm("Index", "UserDatabases", FormMethod.Get))
 {
-    <p>
+    <p >
         Find by name: @Html.TextBox("search")
         <input type="submit" value="Search" />
     </p>
 }
-
-<table class="table">
+<table class="table" style="color:white">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.lastName)
