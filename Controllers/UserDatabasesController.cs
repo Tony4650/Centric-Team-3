@@ -16,9 +16,16 @@ namespace Centric_Team_3.Controllers
         private context db = new context();
 
         // GET: UserDatabases
-        public ActionResult Index()
+        public ActionResult Index(int? page, string search)
         {
-            return View(db.UserDatabase.ToList());
+            var user = from u in db.UserDatabase select u;
+            user = db.UserDatabase.OrderBy(u => u.lastName).ThenBy(u => u.firstName); ;
+            if (!String.IsNullOrEmpty(search))
+            {
+                user = user.Where(u => u.lastName.Contains(search) || u.firstName.Contains(search));
+            }
+            var userList = user.ToList();
+            return View(userList);
         }
 
         // GET: UserDatabases/Details/5
@@ -126,16 +133,6 @@ namespace Centric_Team_3.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Index(int? page, string search)
-        {
-            var user = from u in db.UserDatabase select u;
-            user = db.UserDatabase.OrderBy(u => u.lastName).ThenBy(u => u.firstName); ;
-            if (!String.IsNullOrEmpty(search))
-            {
-                user = user.Where(u => u.lastName.Contains(search) || u.firstName.Contains(search));
-            }
-            var userList = user.ToList();
-            return View(userList);
-        }
+
     }
 }
