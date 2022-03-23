@@ -50,7 +50,6 @@ namespace Centric_Team_3.Models
         }
 
 
-
         [Required]
         [Display(Name = " Title")]
         [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Title")]
