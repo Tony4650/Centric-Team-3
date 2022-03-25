@@ -1,58 +1,81 @@
 ﻿@model Centric_Team_3.Models.UserDatabase
+<dl style="color:white">
+    @{
+        ViewBag.Title = "Details";
+    }
 
-@{
-    ViewBag.Title = "Details";
-}
 
-<h2>Details</h2>
 
-<div>
-    <h4>UserDatabase</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.lastName)
-        </dt>
+    <h2>Details</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.lastName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.firstName)
-        </dt>
+    <div>
+        <h4>UserDatabase</h4>
+        <hr />
+        <dl class="dl-horizontal" style="color:white">
+            <dt>
+                @Html.DisplayNameFor(model => model.firstName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.firstName)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.businessUnit)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.businessUnit)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.firstName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.office)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.office)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.startDate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.lastName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.startDate)
-        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+            <dd>
+                @Html.DisplayFor(model => model.lastName)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.businessUnit)
+            </dt>
+
+
+
+            <dd>
+                @Html.DisplayFor(model => model.businessUnit)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.office)
+            </dt>
+
+
+
+            <dd>
+                @Html.DisplayFor(model => model.office)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.startDate)
+            </dt>
+
+
+
+            <dd>
+                @Html.DisplayFor(model => model.startDate)
+            </dd>
+
+
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
