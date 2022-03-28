@@ -28,10 +28,11 @@ namespace Centric_Team_3.Models
             }
                 }
 
-        [Required]
+        [Required(ErrorMessage = "Business Unit is Required")]
         [Display(Name = " Business Unit ")]
-        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Department")]
+        
         public dlBusinessUnit businessUnit { get; set; }
+
         public enum dlBusinessUnit { 
         Boston = 1,
         Charlotte = 2,
@@ -52,7 +53,8 @@ namespace Centric_Team_3.Models
 
         [Required]
         [Display(Name = " Title")]
-        [RegularExpression("^([a-zA-Z']+)$", ErrorMessage = "System dos not allow digits or special characters in Title")]
+        
+        
         public dlTitle office { get; set; }
         public enum dlTitle { 
         National = 1,
