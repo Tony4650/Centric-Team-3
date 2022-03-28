@@ -14,5 +14,7 @@ namespace Centric_Team_3.DAL
         
         }
         public DbSet<UserDatabase> UserDatabase { get; set; }
+
+        public System.Data.Entity.DbSet<Centric_Team_3.Models.RecognitionPage> RecognitionPages { get; set; }
     }
 }

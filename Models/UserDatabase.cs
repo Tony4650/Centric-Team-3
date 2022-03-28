@@ -71,7 +71,8 @@ namespace Centric_Team_3.Models
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Date is a required field")]
         public DateTime startDate { get; set; }
-        
+        public ICollection<RecognitionPage> Recognition { get; set; }
+
 
     }
 }
