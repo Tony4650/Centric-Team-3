@@ -65,7 +65,7 @@ namespace Centric_Team_3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.errorMessage = "Please make sure you have selected Business Unit and Title";
+            ViewBag.errorMessage = "Please make sure you have selected your Business Unit and Title";
             return View(userDatabase);
 
         }
