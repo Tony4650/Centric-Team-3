@@ -47,6 +47,7 @@ namespace Centric_Team_3.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            ViewBag.errorMessage = "";
             return View();
         }
 
@@ -57,15 +58,16 @@ namespace Centric_Team_3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,lastName,firstName,businessUnit,office,startDate")] UserDatabase userDatabase)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && userDatabase.businessUnit != 0 && userDatabase.office != 0) 
             {
                 userDatabase.ID = Guid.NewGuid();
                 db.UserDatabase.Add(userDatabase);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.errorMessage = "Please make sure you have selected your Business Unit and Title";
             return View(userDatabase);
+
         }
 
         // GET: UserDatabases/Edit/5
