@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Migrations\SampleContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\MessageInbox.cs" />
     <Compile Include="Models\RecognitionPage.cs" />
     <Compile Include="Models\UserDatabase.cs" />
     <Compile Include="Models\IdentityModels.cs" />
