@@ -18,7 +18,8 @@ namespace Centric_Team_3.Controllers
         // GET: RecognitionPages
         public ActionResult Index()
         {
-            return View(db.RecognitionPages.ToList());
+            var recognitionPage = db.RecognitionPage.Include(r => r.Users);
+            return View(recognitionPage.ToList());
         }
 
         // GET: RecognitionPages/Details/5
@@ -28,7 +29,7 @@ namespace Centric_Team_3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RecognitionPage recognitionPage = db.RecognitionPages.Find(id);
+            RecognitionPage recognitionPage = db.RecognitionPage.Find(id);
             if (recognitionPage == null)
             {
                 return HttpNotFound();
@@ -37,9 +38,9 @@ namespace Centric_Team_3.Controllers
         }
 
         // GET: RecognitionPages/Create
-        [Authorize]
         public ActionResult Create()
         {
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName");
             return View();
         }
 
@@ -48,15 +49,16 @@ namespace Centric_Team_3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,RecognitionID,myName,coreValues,reward")] RecognitionPage recognitionPage)
+        public ActionResult Create([Bind(Include = "RecognitionID,myName,ID,coreValues,reward")] RecognitionPage recognitionPage)
         {
-            if (ModelState.IsValid && recognitionPage.coreValues != 0 && recognitionPage.reward != 0)
+            if (ModelState.IsValid)
             {
-                db.RecognitionPages.Add(recognitionPage);
+                db.RecognitionPage.Add(recognitionPage);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.errorMessage = "Please make sure you have selected a core value and reward";
+
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.ID);
             return View(recognitionPage);
         }
 
@@ -67,11 +69,12 @@ namespace Centric_Team_3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RecognitionPage recognitionPage = db.RecognitionPages.Find(id);
+            RecognitionPage recognitionPage = db.RecognitionPage.Find(id);
             if (recognitionPage == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.ID);
             return View(recognitionPage);
         }
 
@@ -80,7 +83,7 @@ namespace Centric_Team_3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,RecognitionID,myName,coreValues,reward")] RecognitionPage recognitionPage)
+        public ActionResult Edit([Bind(Include = "RecognitionID,myName,ID,coreValues,reward")] RecognitionPage recognitionPage)
         {
             if (ModelState.IsValid)
             {
@@ -88,6 +91,7 @@ namespace Centric_Team_3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.ID);
             return View(recognitionPage);
         }
 
@@ -98,7 +102,7 @@ namespace Centric_Team_3.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RecognitionPage recognitionPage = db.RecognitionPages.Find(id);
+            RecognitionPage recognitionPage = db.RecognitionPage.Find(id);
             if (recognitionPage == null)
             {
                 return HttpNotFound();
@@ -111,8 +115,8 @@ namespace Centric_Team_3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RecognitionPage recognitionPage = db.RecognitionPages.Find(id);
-            db.RecognitionPages.Remove(recognitionPage);
+            RecognitionPage recognitionPage = db.RecognitionPage.Find(id);
+            db.RecognitionPage.Remove(recognitionPage);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

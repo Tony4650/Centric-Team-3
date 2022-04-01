@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Centric_Team_3.Models.RecognitionPage>
 
 @{
-    ViewBag.Title = "Recognize a Coworker";
+    ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
@@ -11,6 +11,9 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Users.lastName)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.myName)
         </th>
@@ -26,7 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.RecognitionID)
+            @Html.DisplayFor(modelItem => item.Users.lastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.myName)
@@ -38,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.reward)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecognitionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RecognitionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecognitionID })
         </td>
     </tr>
 }
