@@ -40,7 +40,6 @@ namespace Centric_Team_3.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "fullName");
             return View();
         }
 
@@ -49,15 +48,15 @@ namespace Centric_Team_3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,myName")] RecognitionPage recognitionPage)
+        public ActionResult Create([Bind(Include = "ID,RecognitionID,myName,coreValues,reward")] RecognitionPage recognitionPage)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && recognitionPage.coreValues != 0 && recognitionPage.reward != 0)
             {
                 db.RecognitionPages.Add(recognitionPage);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID = new SelectList(db.UserDatabase, "ID","fullName", recognitionPage.ID);
+            ViewBag.errorMessage = "Please make sure you have selected a core value and reward";
             return View(recognitionPage);
         }
 
@@ -81,7 +80,7 @@ namespace Centric_Team_3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,myName")] RecognitionPage recognitionPage)
+        public ActionResult Edit([Bind(Include = "ID,RecognitionID,myName,coreValues,reward")] RecognitionPage recognitionPage)
         {
             if (ModelState.IsValid)
             {
