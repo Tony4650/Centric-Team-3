@@ -40,6 +40,7 @@ namespace Centric_Team_3.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "fullName");
             return View();
         }
 
@@ -56,7 +57,7 @@ namespace Centric_Team_3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID","fullName", recognitionPage.ID);
             return View(recognitionPage);
         }
 
