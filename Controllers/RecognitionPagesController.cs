@@ -50,13 +50,13 @@ namespace Centric_Team_3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,RecognitionID,myName,coreValues,reward")] RecognitionPage recognitionPage)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && recognitionPage.coreValues != 0 && recognitionPage.reward != 0)
             {
                 db.RecognitionPages.Add(recognitionPage);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.errorMessage = "Please make sure you have selected a core value and reward";
             return View(recognitionPage);
         }
 
