@@ -37,6 +37,7 @@ namespace Centric_Team_3.Controllers
         }
 
         // GET: RecognitionPages/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
