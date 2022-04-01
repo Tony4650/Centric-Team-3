@@ -8,9 +8,10 @@ namespace Centric_Team_3.Models
 {
     public class RecognitionPage
     {
+        [Key]
         public int RecognitionID { get; set; }
         public string myName { get; set; }
-        public int ID { get; set; }
+        public Guid ID { get; set; }
         public virtual UserDatabase Users { get; set; }
 
         [Required(ErrorMessage = "Core Values Indicator is Required")]
