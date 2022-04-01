@@ -47,7 +47,7 @@ namespace Centric_Team_3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,myName")] RecognitionPage recognitionPage)
+        public ActionResult Create([Bind(Include = "ID,RecognitionID,myName,coreValues,reward")] RecognitionPage recognitionPage)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Centric_Team_3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,myName")] RecognitionPage recognitionPage)
+        public ActionResult Edit([Bind(Include = "ID,RecognitionID,myName,coreValues,reward")] RecognitionPage recognitionPage)
         {
             if (ModelState.IsValid)
             {

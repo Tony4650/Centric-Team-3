@@ -12,7 +12,16 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.RecognitionID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.myName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coreValues)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reward)
         </th>
         <th></th>
     </tr>
@@ -20,7 +29,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.RecognitionID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.myName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coreValues)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reward)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

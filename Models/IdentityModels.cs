@@ -29,5 +29,7 @@ namespace Centric_Team_3.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Centric_Team_3.Models.RecognitionPage> RecognitionPages { get; set; }
     }
 }
