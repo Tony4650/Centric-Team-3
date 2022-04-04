@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,7 +13,11 @@ namespace Centric_Team_3.Models
         public int RecognitionID { get; set; }
         public string myName { get; set; }
         public Guid ID { get; set; }
-        public virtual UserDatabase Users { get; set; }
+        public Guid giver { get; set; }
+        [ForeignKey("ID")]
+        public virtual UserDatabase recievee { get; set; }
+        [ForeignKey("giver")]
+        public virtual UserDatabase Giver { get; set; }
 
         [Required(ErrorMessage = "Core Values Indicator is Required")]
         [Display(Name = " Core Values Indicator ")]

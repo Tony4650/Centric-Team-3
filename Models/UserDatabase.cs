@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -74,7 +75,10 @@ namespace Centric_Team_3.Models
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Date is a required field")]
         public DateTime startDate { get; set; }
-        public ICollection<RecognitionPage> Recognition { get; set; }
+        [ForeignKey("ID")]
+        public ICollection<RecognitionPage> Recievee { get; set; }
+        [ForeignKey("giver")]
+        public ICollection<RecognitionPage> Giver { get; set; }
 
 
     }

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Centric_Team_3.DAL;
 using Centric_Team_3.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Centric_Team_3.Controllers
 {
@@ -18,7 +19,7 @@ namespace Centric_Team_3.Controllers
         // GET: RecognitionPages
         public ActionResult Index()
         {
-            var recognitionPage = db.RecognitionPage.Include(r => r.Users);
+            var recognitionPage = db.RecognitionPage.Include(r => r.recievee);
             return View(recognitionPage.ToList());
         }
 
@@ -40,7 +41,10 @@ namespace Centric_Team_3.Controllers
         // GET: RecognitionPages/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName");
+            string empID = User.Identity.GetUserId();
+            SelectList employees = new SelectList(db.UserDatabase, "ID", "fullName");
+            employees = new SelectList(employees.Where(x => x.Value != empID).ToList(), "Value", "Text");
+            ViewBag.ID = employees;
             return View();
         }
 
@@ -58,7 +62,10 @@ namespace Centric_Team_3.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.ID);
+            string empID = User.Identity.GetUserId();
+            SelectList employees = new SelectList(db.UserDatabase, "ID", "fullName");
+            employees = new SelectList(employees.Where(x => x.Value != empID).ToList(), "Value", "Text");
+            ViewBag.ID = employees;
             return View(recognitionPage);
         }
 

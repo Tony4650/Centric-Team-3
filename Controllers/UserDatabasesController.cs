@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Centric_Team_3.DAL;
 using Centric_Team_3.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Centric_Team_3.Controllers
 {
@@ -60,7 +61,9 @@ namespace Centric_Team_3.Controllers
         {
             if (ModelState.IsValid && userDatabase.businessUnit != 0 && userDatabase.office != 0) 
             {
-                userDatabase.ID = Guid.NewGuid();
+                Guid newUser;
+                Guid.TryParse(User.Identity.GetUserId(), out newUser);
+                userDatabase.ID = newUser;
                 db.UserDatabase.Add(userDatabase);
                 db.SaveChanges();
                 return RedirectToAction("Index");
