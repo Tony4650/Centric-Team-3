@@ -11,6 +11,7 @@ namespace Centric_Team_3.Models
         [Key]
         public int RecognitionID { get; set; }
         public string myName { get; set; }
+        [Required(ErrorMessage = "Select an employee to recognize")]
         public Guid ID { get; set; }
         public virtual UserDatabase Users { get; set; }
 
