@@ -1,17 +1,21 @@
 ﻿@model Centric_Team_3.Models.RegisterViewModel
 @{
-    ViewBag.Title = "";
+    ViewBag.Title = "Create a New Account";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div style="background-color: #fdb825">
+    <h2 class="text-center" style="font-size: 50px; color: #2c1a5d"><strong>@ViewBag.Title</strong></h2>
+</div>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4 style="color: black">Create a New Account.</h4>
+    <br />
+    <h4 class="text-center" style="color: #2c1a5d"><em>Sign up and acknowledge how your co-workers represent Centric's Core Values.</em></h4>
+    <br />
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group" style="color: black"> 
+    <div class="form-group" style="color: black">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
