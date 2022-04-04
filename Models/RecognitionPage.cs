@@ -12,6 +12,8 @@ namespace Centric_Team_3.Models
         [Key]
         public int RecognitionID { get; set; }
         public string myName { get; set; }
+        [Required(ErrorMessage = "Select an employee to recognize")]
+        [Display(Name = "Recognizee")]
         public Guid ID { get; set; }
         public Guid giver { get; set; }
         [ForeignKey("ID")]
@@ -29,9 +31,12 @@ namespace Centric_Team_3.Models
         {
             Stewardship = 1,
             Culture = 2,
+            [Display(Name = "Delivery Excellence")]
             Delivery_Excellence = 3,
             Innovation = 4,
+            [Display(Name = "Greater Good")]
             Greater_Good = 5,
+            [Display(Name = "Integrity and Openess")]
             Integrity_and_Openess = 6,
             Balance = 7
         }
@@ -45,7 +50,9 @@ namespace Centric_Team_3.Models
         public enum dlReward
         {
             Excellent = 1,
+            [Display(Name = " Good Job ")]
             Good_Job = 2,
+            [Display(Name = " Nice Work ")]
             Nice_Work = 3  
         }
     }

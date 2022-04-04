@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using Centric_Team_3.DAL;
 using Centric_Team_3.Models;
-using Microsoft.AspNet.Identity;
 
 namespace Centric_Team_3.Controllers
 {
@@ -19,7 +18,7 @@ namespace Centric_Team_3.Controllers
         // GET: RecognitionPages
         public ActionResult Index()
         {
-            var recognitionPage = db.RecognitionPage.Include(r => r.recievee);
+            var recognitionPage = db.RecognitionPage.Include(r => r.Users);
             return View(recognitionPage.ToList());
         }
 
@@ -41,10 +40,7 @@ namespace Centric_Team_3.Controllers
         // GET: RecognitionPages/Create
         public ActionResult Create()
         {
-            string empID = User.Identity.GetUserId();
-            SelectList employees = new SelectList(db.UserDatabase, "ID", "fullName");
-            employees = new SelectList(employees.Where(x => x.Value != empID).ToList(), "Value", "Text");
-            ViewBag.ID = employees;
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "fullName");
             return View();
         }
 
@@ -55,17 +51,14 @@ namespace Centric_Team_3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RecognitionID,myName,ID,coreValues,reward")] RecognitionPage recognitionPage)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && recognitionPage.coreValues != 0 && recognitionPage.reward != 0)
             {
                 db.RecognitionPage.Add(recognitionPage);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            string empID = User.Identity.GetUserId();
-            SelectList employees = new SelectList(db.UserDatabase, "ID", "fullName");
-            employees = new SelectList(employees.Where(x => x.Value != empID).ToList(), "Value", "Text");
-            ViewBag.ID = employees;
+            ViewBag.errorMessage = "Please make sure you have selected a core value and reward!";
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.ID);
             return View(recognitionPage);
         }
 

@@ -1,19 +1,21 @@
 ﻿@using Centric_Team_3.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Log into Account";
 
 }
 
 
 <div class="row" style="color:black">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Log into Account</h4>
-                <hr />
+            <div style="background-color: #fdb825">
+                <h4 class="text-center" style="font-size: 50px; color:#2c1a5d"><strong>@ViewBag.Title</strong></h4>
+            </div>               
+            <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })

@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Centric_Team_3.Models.RecognitionPage>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Recognition Board";
 }
 
-<h2>Index</h2>
+<h2>Recognition Board</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Users.lastName)
+            @Html.DisplayNameFor(model => model.Users.fullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.myName)
@@ -29,7 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Users.lastName)
+            @Html.DisplayFor(modelItem => item.Users.fullName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.myName)
