@@ -40,7 +40,7 @@ namespace Centric_Team_3.Controllers
         // GET: RecognitionPages/Create
         public ActionResult Create()
         {
-            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName");
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "fullName");
             return View();
         }
 

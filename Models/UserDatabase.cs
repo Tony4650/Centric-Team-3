@@ -24,7 +24,7 @@ namespace Centric_Team_3.Models
         [Required]
         public string fullName { get
             {
-                return lastName + "," + firstName;
+                return lastName + ", " + firstName;
             }
                 }
 
