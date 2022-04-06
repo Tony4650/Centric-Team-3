@@ -58,7 +58,7 @@ namespace Centric_Team_3.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.errorMessage = "Please make sure you have selected a core value and reward!";
-            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.ID);
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.recognitionID);
             return View(recognitionPage);
         }
 
@@ -74,7 +74,7 @@ namespace Centric_Team_3.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.ID);
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.recognitionID);
             return View(recognitionPage);
         }
 
@@ -91,7 +91,7 @@ namespace Centric_Team_3.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.ID);
+            ViewBag.ID = new SelectList(db.UserDatabase, "ID", "lastName", recognitionPage.recognitionID);
             return View(recognitionPage);
         }
 

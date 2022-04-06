@@ -10,13 +10,13 @@ namespace Centric_Team_3.Models
     public class RecognitionPage
     {
         [Key]
-        public int RecognitionID { get; set; }
+        public int ID { get; set; }
         public string myName { get; set; }
         [Required(ErrorMessage = "Select an employee to recognize")]
         [Display(Name = "Recognizee")]
-        public Guid ID { get; set; }
+        public Guid recognitionID { get; set; }
         public Guid giver { get; set; }
-        [ForeignKey("ID")]
+        [ForeignKey("recognitionID")]
         public virtual UserDatabase recievee { get; set; }
         [ForeignKey("giver")]
         public virtual UserDatabase Giver { get; set; }

@@ -173,10 +173,12 @@
     <Compile Include="Controllers\RecognitionPagesControllerOld.cs" />
     <Compile Include="Controllers\UserDatabasesController.cs" />
     <Compile Include="DAL\context.cs" />
+    <Compile Include="DAL\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SampleContext\Configuration.cs" />
+    <Compile Include="modelBuilder\Entity.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\foreignKeyAttribute.cs" />
     <Compile Include="Models\MessageInbox.cs" />

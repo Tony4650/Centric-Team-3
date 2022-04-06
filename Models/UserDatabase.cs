@@ -75,7 +75,7 @@ namespace Centric_Team_3.Models
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Date is a required field")]
         public DateTime startDate { get; set; }
-        [ForeignKey("ID")]
+        [ForeignKey("recognitionID")]
         public ICollection<RecognitionPage> Recievee { get; set; }
         [ForeignKey("giver")]
         public ICollection<RecognitionPage> Giver { get; set; }
