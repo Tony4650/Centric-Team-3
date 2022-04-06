@@ -11,14 +11,14 @@ using Centric_Team_3.Models;
 
 namespace Centric_Team_3.Controllers
 {
-    public class RecognitionPagesController : Controller
+    public class RecognitionPagesControllerOld : Controller
     {
         private context db = new context();
 
         // GET: RecognitionPages
         public ActionResult Index()
         {
-            var recognitionPage = db.RecognitionPage.Include(r => r.Users);
+            var recognitionPage = db.RecognitionPage.Include(r => r.Giver);
             return View(recognitionPage.ToList());
         }
 
