@@ -12,10 +12,14 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-            <div style="background-color: #fdb825">
-                <h4 class="text-center" style="font-size: 50px; color:#2c1a5d"><strong>@ViewBag.Title</strong></h4>
-            </div>               
-            <hr />
+                <div style="background-color: #fdb825">
+                    <h4 class="text-center" style="font-size: 50px; color:#2c1a5d"><strong>@ViewBag.Title</strong></h4>
+                </div>
+                <br />
+                <h5 class="text-center" style="font-size: 20px; color: #2c1a5d"><em>Login into your Centric Account and start recognizing your coworkers.</em></h5>
+                <br />
+
+                <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
@@ -45,12 +49,12 @@
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Register as a new user", "Register")
+                    @Html.ActionLink("Create New Account", "Register")
                 </p>
                 @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
             }
         </section>
     </div>
