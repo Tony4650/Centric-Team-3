@@ -170,7 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RecognitionPagesController.cs" />
+    <Compile Include="Controllers\RecognitionPagesControllerOld.cs" />
     <Compile Include="Controllers\UserDatabasesController.cs" />
     <Compile Include="DAL\context.cs" />
     <Compile Include="Global.asax.cs">
@@ -248,11 +248,11 @@
     <Content Include="Views\UserDatabases\Details.cshtml" />
     <Content Include="Views\UserDatabases\Edit.cshtml" />
     <Content Include="Views\UserDatabases\Index.cshtml" />
-    <Content Include="Views\RecognitionPages\Create.cshtml" />
-    <Content Include="Views\RecognitionPages\Delete.cshtml" />
-    <Content Include="Views\RecognitionPages\Details.cshtml" />
-    <Content Include="Views\RecognitionPages\Edit.cshtml" />
-    <Content Include="Views\RecognitionPages\Index.cshtml" />
+    <Content Include="Views\RecognitionPagesOld\Create.cshtml" />
+    <Content Include="Views\RecognitionPagesOld\Delete.cshtml" />
+    <Content Include="Views\RecognitionPagesOld\Details.cshtml" />
+    <Content Include="Views\RecognitionPagesOld\Edit.cshtml" />
+    <Content Include="Views\RecognitionPagesOld\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
